@@ -10,17 +10,15 @@ export default new Router({
     {
       path: '/',
       name: 'Layout',
-      component: Layout
-    },
-    {
-      path: '/views/layout',
-      name: 'Layout',
-      component: Layout
-    },
-    {
-      path: '/views/home/index',
-      name: 'Home',
-      component: Home
+      component: Layout,
+      redirect: '/views/home/index',
+      children: [
+        {
+          path: '/views/home/index',
+          name: 'Home',
+          component: Home
+        }
+      ]
     }
   ]
 })
