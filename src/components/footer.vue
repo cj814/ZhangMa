@@ -6,8 +6,12 @@
         tag="li"
         :key="index"
         :to="{ name: item.linkName }"
+        class="flex flex-trans-center flex-vert-center"
         :class="item.isActive ? 'active' : ''"
-      >{{item.navName}}</router-link>
+      >
+        <i class="iconfont" :class="item.iconClass"></i>
+        {{item.navName}}
+      </router-link>
     </ul>
   </div>
 </template>
@@ -21,21 +25,25 @@ export default {
         {
           navName: '首页',
           linkName: 'Home',
+          iconClass: 'icon-shouye',
           isActive: true
         },
         {
           navName: '天气',
           linkName: 'Weather',
+          iconClass: 'icon-yin',
           isActive: false
         },
         {
           navName: '简介',
-          linkName: '',
+          linkName: 'Intro',
+          iconClass: 'icon-jieshao',
           isActive: false
         },
         {
           navName: '我的',
-          linkName: '',
+          linkName: 'Person',
+          iconClass: 'icon-xiazai',
           isActive: false
         }
       ]
@@ -57,6 +65,7 @@ export default {
 </script>
 
 <style scoped>
+@import '../assets/css/iconfont.css';
 ul{
     width: 100%;
     position: fixed;
@@ -65,9 +74,11 @@ ul{
 ul li{
     height: 44px;
     flex: 1;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     position: relative;
+    -webkit-flex-direction: column;
+    flex-direction: column;
 }
 ul li::before{
     content: '';
@@ -81,6 +92,9 @@ ul li::before{
     transform: scaleY(.5);
 }
 .active{
-    color: red;
+    color: #1bb6e2;
+}
+.iconfont{
+    font-size: 26px;
 }
 </style>

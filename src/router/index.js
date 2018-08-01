@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Layout from '@/views/layout'
 import Home from '@/views/home/index'
 import Weather from '@/views/weather/index'
+import Intro from '@/views/intro/index'
+import Person from '@/views/person/index'
 
 Vue.use(Router)
 
@@ -23,6 +25,16 @@ export default new Router({
           path: '/views/weather/index',
           name: 'Weather',
           component: Weather
+        },
+        {
+          path: '/views/intro/index',
+          name: 'Intro',
+          component: Intro
+        },
+        {
+          path: '/views/person/index',
+          name: 'Person',
+          component: Person
         }
       ]
     }

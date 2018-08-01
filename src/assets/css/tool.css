@@ -8,6 +8,14 @@
 	display: -webkit-flex;
 	display: flex;
 }
+.flex-trans-center{
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+.flex-vert-center{
+	-webkit-align-items: center;
+	align-items: center;
+}
 .clear{
 	clear: both;
 }
