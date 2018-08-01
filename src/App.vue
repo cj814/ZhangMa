@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view :key="key"/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    key () {
+      return this.$route.name !== undefined ? this.$route.name + new Date().getTime() : this.$route.name + new Date().getTime()
+    }
+  }
 }
 </script>
 
