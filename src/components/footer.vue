@@ -74,6 +74,7 @@ ul{
 ul li{
     height: 44px;
     flex: 1;
+    color: #999;
     font-size: 12px;
     text-align: center;
     position: relative;

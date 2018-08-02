@@ -37,8 +37,8 @@ h1{
 }
 .iconfont{
     height: 36px;
-    padding: 7px 8px;
-    font-size: 22px;
+    padding: 8px;
+    font-size: 20px;
     color: #fff;
 }
 .icon-fanhui{
