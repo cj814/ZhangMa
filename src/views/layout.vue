@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wid-100 hei-100">
         <router-view></router-view>
         <footer-nav></footer-nav>
     </div>

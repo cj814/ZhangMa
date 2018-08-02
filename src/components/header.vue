@@ -1,9 +1,14 @@
 <template>
     <div class="nav wid-100">
         <div class="sub-nav wid-100 hei-100 flex flex-vert-center">
-            <i class="iconfont icon-fanhui"></i>
+            <!-- <i class="iconfont icon-fanhui"></i> -->
+            <slot name="top-left-slot">
+                <i class="iconfont icon-default1"></i>
+            </slot>
             <h1>{{navTitle}}</h1>
-            <i class="iconfont icon-shezhi"></i>
+            <slot name="top-right-slot">
+                <i class="iconfont icon-default2"></i>
+            </slot>
             <div class="trans-line"></div>
         </div>
     </div>
@@ -36,6 +41,7 @@ h1{
     color: #fff;
 }
 .iconfont{
+    min-width: 36px;
     height: 36px;
     padding: 8px;
     font-size: 20px;

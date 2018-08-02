@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="wid-100 hei-100">
     <router-view :key="key"/>
   </div>
 </template>
@@ -18,4 +18,13 @@ export default {
 <style>
 @import 'assets/css/reset.css';
 @import 'assets/css/tool.css';
+
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.app-content{
+  padding-top: 36px;
+  padding-bottom: 44px;
+}
 </style>
