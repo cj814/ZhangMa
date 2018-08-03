@@ -16,8 +16,23 @@
 	-webkit-align-items: center;
 	align-items: center;
 }
+.flex-justify{
+	-webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.flex-column{
+	-webkit-flex-direction: column;
+    flex-direction: column;
+}
+.flex-column-justify{
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
 .clear{
 	clear: both;
+}
+.block{
+	display: block;
 }
 .vertical-line{
 	position: absolute;
