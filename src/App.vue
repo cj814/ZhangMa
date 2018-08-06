@@ -27,4 +27,7 @@ html,body{
   padding-top: 36px;
   padding-bottom: 44px;
 }
+.app-sub-content{
+  padding-top: 36px;
+}
 </style>

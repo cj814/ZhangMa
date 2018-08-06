@@ -10,29 +10,29 @@
                     <img src="../../assets/images/forward.png">
                 </router-link>
             </div>
-            <div class="index-img-box flex flex-justify">
+            <router-link class="index-img-box flex flex-justify" :to="{name: 'phoList'}" tag="div">
                 <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
                 <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
                 <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-            </div>
+            </router-link>
         </div>
         <div class="index-middle-box flex flex-justify">
             <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Syyd'}" tag="div">
                 <img src="../../assets/images/syyd.png">
                 <span class="block">四园一岛</span>
             </router-link>
-            <div class="middle-box-item flex flex-trans-center flex-vert-center flex-column">
+            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Nfcp'}" tag="div">
                 <img src="../../assets/images/nfcp.png">
                 <span class="block">农副产品</span>
-            </div>
-            <div class="middle-box-item flex flex-trans-center flex-vert-center flex-column">
+            </router-link>
+            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Ybyj'}" tag="div">
                 <img src="../../assets/images/ybyj.png">
                 <span class="block">一步一景</span>
-            </div>
-            <div class="middle-box-item flex flex-trans-center flex-vert-center flex-column">
+            </router-link>
+            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Tsms'}" tag="div">
                 <img src="../../assets/images/tsms.png">
                 <span class="block">特色民宿</span>
-            </div>
+            </router-link>
         </div>
         <div class="index-space"></div>
         <div class="dynamic-news-list">
