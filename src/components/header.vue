@@ -1,14 +1,11 @@
 <template>
     <div class="nav wid-100">
         <div class="sub-nav wid-100 hei-100 flex flex-vert-center">
-            <!-- <i class="iconfont icon-fanhui"></i> -->
-            <slot name="top-left-slot">
-                <i class="iconfont icon-default1"></i>
-            </slot>
+            <i class="iconfont icon-fanhui slot-header left" v-show="isCanBack" @click="routerBack"></i>
             <h1>{{navTitle}}</h1>
-            <slot name="top-right-slot">
-                <i class="iconfont icon-default2"></i>
-            </slot>
+            <div class="slot-header right hei-100 flex flex-vert-center">
+                <slot name="top-right-slot"></slot>
+            </div>
             <div class="trans-line"></div>
         </div>
     </div>
@@ -20,6 +17,15 @@ export default {
     navTitle: {
       type: String,
       default: ''
+    },
+    isCanBack: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    routerBack () {
+      this.$router.go(-1)
     }
   }
 }
@@ -38,7 +44,7 @@ export default {
 h1{
     text-align: center;
     flex: 1;
-    color: #fff;
+    color: #ffffff;
 }
 .iconfont{
     min-width: 36px;
@@ -49,5 +55,19 @@ h1{
 }
 .icon-fanhui{
     width: 36px;
+}
+.slot-header{
+    position: absolute;
+}
+.slot-header.left{
+    left: 0;
+}
+.slot-header.right{
+    right: 0;
+    color: #fff;
+}
+.slot-header.right>span{
+    font-size: 14px;
+    padding: 0 10px;
 }
 </style>

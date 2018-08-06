@@ -5,6 +5,7 @@ import Home from '@/views/home/index'
 import Weather from '@/views/weather/index'
 import Intro from '@/views/intro/index'
 import Person from '@/views/person/index'
+import Syyd from '@/views/home/syyd/index'
 
 Vue.use(Router)
 
@@ -37,6 +38,11 @@ export default new Router({
           component: Person
         }
       ]
+    },
+    {
+      path: '/views/home/syyd/index', // 四园一岛
+      name: 'Syyd',
+      component: Syyd
     }
   ]
 })

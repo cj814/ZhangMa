@@ -17,10 +17,10 @@
             </div>
         </div>
         <div class="index-middle-box flex flex-justify">
-            <div class="middle-box-item flex flex-trans-center flex-vert-center flex-column">
+            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Syyd'}" tag="div">
                 <img src="../../assets/images/syyd.png">
                 <span class="block">四园一岛</span>
-            </div>
+            </router-link>
             <div class="middle-box-item flex flex-trans-center flex-vert-center flex-column">
                 <img src="../../assets/images/nfcp.png">
                 <span class="block">农副产品</span>
