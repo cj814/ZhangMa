@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout'
+import Login from '@/views/user/login'
 import Home from '@/views/home/index'
 import Weather from '@/views/weather/index'
 import Intro from '@/views/intro/index'
@@ -19,7 +20,7 @@ export default new Router({
       path: '/',
       name: 'Layout',
       component: Layout,
-      redirect: '/views/home/index',
+      redirect: '/views/user/login',
       children: [
         {
           path: '/views/home/index',
@@ -42,6 +43,11 @@ export default new Router({
           component: Person
         }
       ]
+    },
+    {
+      path: '/views/user/login', // 登录
+      name: 'Login',
+      component: Login
     },
     {
       path: '/views/home/syyd/index', // 四园一岛
