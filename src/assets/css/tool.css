@@ -34,6 +34,18 @@
 .block{
 	display: block;
 }
+.btn{
+	display: block;
+	padding: 6px 8px;
+	font-size: 14px;
+	color: #fff;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #ccc;
+}
+.btn:active{
+	opacity: 0.8;
+}
 .vertical-line{
 	position: absolute;
 	top: 0;
