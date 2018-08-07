@@ -36,7 +36,8 @@
 }
 .btn{
 	display: block;
-	padding: 6px 8px;
+	padding: 8px;
+	text-align: center;
 	font-size: 14px;
 	color: #fff;
 	-webkit-border-radius: 5px;
@@ -45,6 +46,9 @@
 }
 .btn:active{
 	opacity: 0.8;
+}
+.btn.btn-info{
+	background-color: #1bb6e2;
 }
 .vertical-line{
 	position: absolute;
