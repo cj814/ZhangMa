@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import HeaderNav from '@/components/header'
 export default {
   components: {
@@ -24,7 +25,14 @@ export default {
   },
   methods: {
     login () {
-
+      alert(111)
+      axios.get(`http://www.qpzhangma.com/dataservice/ZM/RequestHandler/DataHandler.ashx?Assembly=CunJuInformationPlatformDataService&ClassName=CunJuInformationPlatformDataService.ZM.ZMApp_Control.User_Control&MethodName=login&Parameters=${this.username}|${this.password}`)
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   }
 }
