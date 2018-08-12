@@ -6,6 +6,7 @@ import Home from '@/views/home/index'
 import Weather from '@/views/weather/index'
 import Intro from '@/views/intro/index'
 import Person from '@/views/person/index'
+import Account from '@/views/person/account'
 import Syyd from '@/views/home/syyd/index'
 import Nfcp from '@/views/home/nfcp/index'
 import Ybyj from '@/views/home/ybyj/index'
@@ -20,7 +21,7 @@ export default new Router({
       path: '/',
       name: 'Layout',
       component: Layout,
-      redirect: '/views/user/login',
+      redirect: '/views/home/index',
       children: [
         {
           path: '/views/home/index',
@@ -40,7 +41,10 @@ export default new Router({
         {
           path: '/views/person/index',
           name: 'Person',
-          component: Person
+          component: Person,
+          meta: {
+            auth: true
+          }
         }
       ]
     },
@@ -73,6 +77,14 @@ export default new Router({
       path: '/views/home/phoList/index', // 风景图片列表
       name: 'phoList',
       component: phoList
+    },
+    {
+      path: '/views/person/account', // 账户信息
+      name: 'Account',
+      component: Account,
+      meta: {
+        auth: true
+      }
     }
   ]
 })

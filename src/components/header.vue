@@ -3,7 +3,7 @@
         <div class="sub-nav wid-100 hei-100 flex flex-vert-center">
             <i class="iconfont icon-fanhui slot-header left" v-show="isCanBack" @click="routerBack"></i>
             <h1>{{navTitle}}</h1>
-            <div class="slot-header right hei-100 flex flex-vert-center">
+            <div class="slot-header right hei-100 flex flex-vert-center" @click="navEvent">
                 <slot name="top-right-slot"></slot>
             </div>
             <div class="trans-line"></div>
@@ -26,6 +26,9 @@ export default {
   methods: {
     routerBack () {
       this.$router.go(-1)
+    },
+    navEvent () {
+      this.$emit('nav-event')
     }
   }
 }

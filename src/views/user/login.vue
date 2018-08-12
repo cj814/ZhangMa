@@ -1,6 +1,6 @@
 <template>
     <div class="wid-100 hei-100">
-        <header-nav navTitle="登录"></header-nav>
+        <header-nav navTitle="登录" :isCanBack="true"></header-nav>
         <div class="app-sub-content hei-100 flex flex-trans-center flex-vert-center flex-column">
           <h1 class="block">张马旅游</h1>
           <input type="text" class="block wid-100" v-model="username" placeholder="用户名">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import * as userAPI from '@/api/user/login'
 import HeaderNav from '@/components/header'
 export default {
   components: {
@@ -25,13 +25,16 @@ export default {
   },
   methods: {
     login () {
-      alert(111)
-      axios.get(`http://www.qpzhangma.com/dataservice/ZM/RequestHandler/DataHandler.ashx?Assembly=CunJuInformationPlatformDataService&ClassName=CunJuInformationPlatformDataService.ZM.ZMApp_Control.User_Control&MethodName=login&Parameters=${this.username}|${this.password}`)
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error)
+      userAPI.login(`User_Control&MethodName=login&Parameters=${this.username}|${this.password}`, 'get')
+        .then((data) => {
+          if (data) {
+            this.$store.dispatch('login', data).then(() => {
+              // this.$router.push({name: 'Home'})
+              this.$router.push(this.$route.query.redirect || '/')
+            })
+          } else {
+            console.log('用户名或密码错误')
+          }
         })
     }
   }
