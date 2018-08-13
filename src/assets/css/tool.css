@@ -53,6 +53,9 @@
 .btn.btn-warning{
 	background-color: #f0ad4e;
 }
+.box-active:active{
+	background-color: #f7f7f7;
+}
 .vertical-line{
 	position: absolute;
 	top: 0;

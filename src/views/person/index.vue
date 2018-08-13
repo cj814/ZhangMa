@@ -8,12 +8,12 @@
                 <img src="../../assets/images/pic_1.jpg">
                 <span class="block">{{userName}}</span>
             </div>
-            <div class="user-info-item flex flex-justify">
+            <div class="user-info-item box-active flex flex-justify">
                 <span>我的订单</span>
                 <img src="../../assets/images/more.png">
                 <div class="trans-line"></div>
             </div>
-            <div class="user-info-item flex flex-justify">
+            <div class="user-info-item box-active flex flex-justify">
                 <span>出行人管理</span>
                 <img src="../../assets/images/more.png">
                 <div class="trans-line"></div>

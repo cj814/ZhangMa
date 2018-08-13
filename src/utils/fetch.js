@@ -7,6 +7,7 @@ const service = axios.create({
 })
 
 const serviceUrl = 'dataservice/ZM/RequestHandler/DataHandler.ashx?Assembly=CunJuInformationPlatformDataService&ClassName=CunJuInformationPlatformDataService.ZM.ZMApp_Control.'
+const imgUrl = process.env.BASE_API + '/dataservice/PhotoManage.ashx'
 
 service.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
@@ -46,3 +47,5 @@ export function fetch (url, method, params) {
     }
   })
 }
+
+export { imgUrl }

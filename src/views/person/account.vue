@@ -2,7 +2,7 @@
     <div>
         <nav-header navTitle="我的账户" :isCanBack="true"></nav-header>
         <div class="wid-100 app-content">
-          <div class="account-item flex flex-justify flex-vert-center">
+          <div class="account-item box-active flex flex-justify flex-vert-center">
             <div class="user-img-info flex flex-vert-center">
               <img src="../../assets/images/pic_1.jpg" class="user-img">
               <div class="user-info">
@@ -13,12 +13,12 @@
             <img src="../../assets/images/more.png">
             <div class="trans-line"></div>
           </div>
-          <div class="account-item flex flex-justify flex-vert-center">
+          <div class="account-item box-active flex flex-justify flex-vert-center">
             <span class="block">手机号码</span>
             <span class="block">{{phone}}</span>
             <div class="trans-line"></div>
           </div>
-          <div class="account-item flex flex-justify flex-vert-center">
+          <div class="account-item box-active flex flex-justify flex-vert-center">
             <span class="block">修改登录密码</span>
             <img src="../../assets/images/more.png">
             <div class="trans-line"></div>

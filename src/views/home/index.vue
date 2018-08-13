@@ -4,32 +4,30 @@
             <div class="name-weather-arrow flex flex-vert-center flex-justify">
                 <router-link class="name-weather" :to="{name: 'Weather'}" tag="div">
                     <span class="block">张马村</span>
-                    <span class="block">31℃</span>
+                    <span class="block">{{curWenDu}}</span>
                 </router-link>
                 <router-link class="arrow" :to="{name: 'Intro'}" tag="div">
                     <img src="../../assets/images/forward.png">
                 </router-link>
             </div>
             <router-link class="index-img-box flex flex-justify" :to="{name: 'phoList'}" tag="div">
-                <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-                <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-                <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
+                <img :src="imgUrl + '?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=' + el + '&col=Image'" :key="index" v-for="(el,index) in imgIds">
             </router-link>
         </div>
         <div class="index-middle-box flex flex-justify">
-            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Syyd'}" tag="div">
+            <router-link class="middle-box-item box-active flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Syyd'}" tag="div">
                 <img src="../../assets/images/syyd.png">
                 <span class="block">四园一岛</span>
             </router-link>
-            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Nfcp'}" tag="div">
+            <router-link class="middle-box-item box-active flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Nfcp'}" tag="div">
                 <img src="../../assets/images/nfcp.png">
                 <span class="block">农副产品</span>
             </router-link>
-            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Ybyj'}" tag="div">
+            <router-link class="middle-box-item box-active flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Ybyj'}" tag="div">
                 <img src="../../assets/images/ybyj.png">
                 <span class="block">一步一景</span>
             </router-link>
-            <router-link class="middle-box-item flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Tsms'}" tag="div">
+            <router-link class="middle-box-item box-active flex flex-trans-center flex-vert-center flex-column" :to="{name: 'Tsms'}" tag="div">
                 <img src="../../assets/images/tsms.png">
                 <span class="block">特色民宿</span>
             </router-link>
@@ -40,43 +38,11 @@
                 <blockquote>张马动态</blockquote>
             </div>
             <ul class="dynamic-news-content">
-                <li class="dynamic-news-item flex">
-                    <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
+                <li class="dynamic-news-item box-active flex" v-for="(el, index) in newsList" :key="index">
+                    <img :src="el.ImgSrc">
                     <div class="dynamic-news-info flex flex-column flex-column-justify">
-                        <span class="dynamic-news-title block">大清邮局</span>
-                        <span class="dynamic-news-time block">07-25 14:00</span>
-                    </div>
-                    <div class="trans-line-top"></div>
-                </li>
-                <li class="dynamic-news-item flex">
-                    <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-                    <div class="dynamic-news-info flex flex-column flex-column-justify">
-                        <span class="dynamic-news-title block">大清邮局</span>
-                        <span class="dynamic-news-time block">07-25 14:00</span>
-                    </div>
-                    <div class="trans-line-top"></div>
-                </li>
-                <li class="dynamic-news-item flex">
-                    <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-                    <div class="dynamic-news-info flex flex-column flex-column-justify">
-                        <span class="dynamic-news-title block">大清邮局</span>
-                        <span class="dynamic-news-time block">07-25 14:00</span>
-                    </div>
-                    <div class="trans-line-top"></div>
-                </li>
-                <li class="dynamic-news-item flex">
-                    <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-                    <div class="dynamic-news-info flex flex-column flex-column-justify">
-                        <span class="dynamic-news-title block">大清邮局</span>
-                        <span class="dynamic-news-time block">07-25 14:00</span>
-                    </div>
-                    <div class="trans-line-top"></div>
-                </li>
-                <li class="dynamic-news-item flex">
-                    <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-                    <div class="dynamic-news-info flex flex-column flex-column-justify">
-                        <span class="dynamic-news-title block">大清邮局</span>
-                        <span class="dynamic-news-time block">07-25 14:00</span>
+                        <span class="dynamic-news-title block">{{el.Title}}</span>
+                        <span class="dynamic-news-time block">{{el.Time}}</span>
                     </div>
                     <div class="trans-line-top"></div>
                 </li>
@@ -86,8 +52,57 @@
 </template>
 
 <script>
+import * as homeAPI from '@/api/home/index'
+import axios from 'axios'
+import { strToImg, parseTime } from '@/utils/tools'
+import { imgUrl } from '@/utils/fetch'
 export default {
+  data () {
+    return {
+      imgUrl: imgUrl,
+      curWenDu: '',
+      imgIds: [],
+      newsList: []
+    }
+  },
+  mounted () {
+    axios.all([this.getIndexViewsImage(), this.getIndexNewsList(), this.getCurWenDu()])
+      .then(() => {
+        console.log('图片，新闻加载成功')
+      })
+  },
+  methods: {
+    // 获取风景图片
+    getIndexViewsImage () {
+      homeAPI.getIndexViewsImage('View_Control&MethodName=GetAllViewImage', 'get')
+        .then((data) => {
+          for (let i = 0; i < data.length; i++) {
+            if (i < 3) {
+              this.$data.imgIds.push(data[i])
+            }
+          }
+        })
+    },
+    // 获取新闻列表
+    getIndexNewsList () {
+      homeAPI.getIndexNewsList('User_Control&MethodName=getIndexNfcp', 'get')
+        .then((data) => {
+          for (let i = 0; i < data.length; i++) {
+            data[i].ImgSrc = strToImg(data[i].Content)
+            data[i].Time = parseTime(data[i].Time.replace('T', ' '), '{m}-{d} {h}:{i}')
+          }
 
+          this.$data.newsList = data
+        })
+    },
+    // 获取当前温度
+    getCurWenDu () {
+      axios.get('http://wthrcdn.etouch.cn/weather_mini?city=青浦')
+        .then((res) => {
+          this.$data.curWenDu = res.data.data.forecast[0].high.replace('高温 ', '')
+        })
+    }
+  }
 }
 </script>
 
@@ -116,10 +131,6 @@ export default {
     height: 60px;
     margin-top: 30px;
 }
-.index-middle-box{
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
 .index-space{
     content: '';
     width: 100%;
@@ -128,6 +139,8 @@ export default {
 }
 .middle-box-item{
     flex: 1;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 .middle-box-item img{
     width: 50px;
