@@ -30,4 +30,17 @@ html,body{
 .app-sub-content{
   padding-top: 36px;
 }
+.loading-box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
 </style>

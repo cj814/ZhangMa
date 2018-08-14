@@ -48,27 +48,41 @@
                 </li>
             </ul>
         </div>
+        <div class="loading-box" v-if="isLoading">
+            <spinner :color="spinnerColor" :size="50" :depth="4"></spinner>
+        </div>
     </div>
 </template>
 
 <script>
 import * as homeAPI from '@/api/home/index'
 import axios from 'axios'
+import Spinner from 'vue-spinner-component/src/Spinner'
 import { strToImg, parseTime } from '@/utils/tools'
 import { imgUrl } from '@/utils/fetch'
 export default {
+  components: {
+    Spinner
+  },
   data () {
     return {
       imgUrl: imgUrl,
+      isLoading: true,
       curWenDu: '',
       imgIds: [],
       newsList: []
     }
   },
   mounted () {
+    let _this = this
     axios.all([this.getIndexViewsImage(), this.getIndexNewsList(), this.getCurWenDu()])
       .then(() => {
-        console.log('图片，新闻加载成功')
+        // console.log('图片，新闻加载成功')
+        _this.$nextTick(() => {
+          setTimeout(function () {
+            _this.$data.isLoading = false
+          }, 2000)
+        })
       })
   },
   methods: {
