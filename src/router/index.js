@@ -12,6 +12,7 @@ import Nfcp from '@/views/home/nfcp/index'
 import Ybyj from '@/views/home/ybyj/index'
 import Tsms from '@/views/home/tsms/index'
 import phoList from '@/views/home/phoList/index'
+import newsDetail from '@/views/home/newsDetail'
 
 Vue.use(Router)
 
@@ -85,6 +86,11 @@ export default new Router({
       meta: {
         auth: true
       }
+    },
+    {
+      path: '/views/home/newsDetail', // 新闻详情
+      name: 'newsDetail',
+      component: newsDetail
     }
   ]
 })

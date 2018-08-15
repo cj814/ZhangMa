@@ -38,14 +38,14 @@
                 <blockquote>张马动态</blockquote>
             </div>
             <ul class="dynamic-news-content">
-                <li class="dynamic-news-item box-active flex" v-for="(el, index) in newsList" :key="index">
+                <router-link class="dynamic-news-item box-active flex" v-for="(el, index) in newsList" :key="index" tag="li" :to="{name: 'newsDetail', query: {newsId: el.Id}}">
                     <img :src="el.ImgSrc">
                     <div class="dynamic-news-info flex flex-column flex-column-justify">
                         <span class="dynamic-news-title block">{{el.Title}}</span>
                         <span class="dynamic-news-time block">{{el.Time}}</span>
                     </div>
                     <div class="trans-line-top"></div>
-                </li>
+                </router-link>
             </ul>
         </div>
         <div class="loading-box" v-if="isLoading">

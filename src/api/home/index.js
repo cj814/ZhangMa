@@ -9,3 +9,8 @@ export function getIndexViewsImage (url, params) {
 export function getIndexNewsList (url, params) {
   return fetch(url, params)
 }
+
+// 获取新闻详情
+export function getIndexNewsDetail (url, params) {
+  return fetch(url, params)
+}
