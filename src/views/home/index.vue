@@ -76,44 +76,52 @@ export default {
   mounted () {
     let _this = this
     axios.all([this.getIndexViewsImage(), this.getIndexNewsList(), this.getCurWenDu()])
-      .then(() => {
-        // console.log('图片，新闻加载成功')
+      .then((results) => {
+        _this.$data.imgIds = results[0]
+        _this.$data.newsList = results[1]
+        _this.$data.curWenDu = results[2]
         _this.$nextTick(() => {
-          setTimeout(function () {
-            _this.$data.isLoading = false
-          }, 2000)
+          _this.$data.isLoading = false
         })
       })
   },
   methods: {
     // 获取风景图片
     getIndexViewsImage () {
-      homeAPI.getIndexViewsImage('View_Control&MethodName=GetAllViewImage', 'get')
+      return homeAPI.getIndexViewsImage('View_Control&MethodName=GetAllViewImage', 'get')
         .then((data) => {
+          let temp = []
           for (let i = 0; i < data.length; i++) {
             if (i < 3) {
-              this.$data.imgIds.push(data[i])
+              temp.push(data[i])
             }
           }
+
+          return temp
         })
     },
     // 获取新闻列表
     getIndexNewsList () {
-      homeAPI.getIndexNewsList('User_Control&MethodName=getIndexNfcp', 'get')
+      return homeAPI.getIndexNewsList('User_Control&MethodName=getIndexNfcp', 'get')
         .then((data) => {
           for (let i = 0; i < data.length; i++) {
             data[i].ImgSrc = strToImg(data[i].Content)
             data[i].Time = parseTime(data[i].Time.replace('T', ' '), '{m}-{d} {h}:{i}')
           }
 
-          this.$data.newsList = data
+          return data
         })
     },
     // 获取当前温度
     getCurWenDu () {
-      axios.get('http://wthrcdn.etouch.cn/weather_mini?city=青浦')
+      return axios.get('http://wthrcdn.etouch.cn/weather_mini?city=青浦')
         .then((res) => {
-          this.$data.curWenDu = res.data.data.forecast[0].high.replace('高温 ', '')
+          let curWenDu = ''
+          if (res) {
+            curWenDu = res.data.data.forecast[0].high.replace('高温 ', '')
+          }
+
+          return curWenDu
         })
     }
   }
