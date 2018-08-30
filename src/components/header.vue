@@ -40,6 +40,7 @@ export default {
     height: 36px;
     position: fixed;
     background-color: #1bb6e2;
+    z-index: 10;
 }
 .sub-nav{
     position: relative;

@@ -5,7 +5,7 @@
           <iframe src="http://weather1.sina.cn/?code=beijing&vt=4" frameborder="0" class="wid-100 hei-100" id="weatherFrame"></iframe>
         </div>
         <div class="loading-box" v-if="isLoading">
-          <spinner :color="spinnerColor" :size="50" :depth="4"></spinner>
+          <spinner :size="50" :depth="4"></spinner>
         </div>
     </div>
 </template>

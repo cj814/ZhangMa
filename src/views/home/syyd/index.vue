@@ -2,62 +2,17 @@
     <div class="wid-100">
         <header-nav navTitle="四园一岛" :isCanBack="true"></header-nav>
         <ul class="app-sub-content">
-          <li class="flex flex-justify flex-vert-center">
+          <li class="flex flex-justify flex-vert-center" v-for="(el,index) in allViews" :key="index">
             <div class="syyd-item-left flex">
-              <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
+              <img :src="imgUrl + '?OP=comm_Show&tableName=ZM.ViewTable&key=ViewTable_ID&keyValue=' + el.ViewId + '&col=viewICO'">
               <div class="name-intro-distance">
-                <span class="name">蓝莓园</span>
-                <p>玛莎拉蒂骂什么大</p>
+                <span class="name">{{el.ViewName}}</span>
+                <p>{{el.ViewDesc}}</p>
                 <p class="distance">距您<span>58</span>km</p>
               </div>
             </div>
             <div class="syyd-item-right">
-              <span class="price">¥5</span>
-              <span>起</span>
-            </div>
-            <div class="trans-line"></div>
-          </li>
-          <li class="flex flex-justify flex-vert-center">
-            <div class="syyd-item-left flex">
-              <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-              <div class="name-intro-distance">
-                <span class="name">蓝莓园</span>
-                <p>玛莎拉蒂骂什么大</p>
-                <p class="distance">距您<span>58</span>km</p>
-              </div>
-            </div>
-            <div class="syyd-item-right">
-              <span class="price">¥5</span>
-              <span>起</span>
-            </div>
-            <div class="trans-line"></div>
-          </li>
-          <li class="flex flex-justify flex-vert-center">
-            <div class="syyd-item-left flex">
-              <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-              <div class="name-intro-distance">
-                <span class="name">蓝莓园</span>
-                <p>玛莎拉蒂骂什么大我的我么大我的我么大我的我么大我的我</p>
-                <p class="distance">距您<span>58</span>km</p>
-              </div>
-            </div>
-            <div class="syyd-item-right">
-              <span class="price">¥5</span>
-              <span>起</span>
-            </div>
-            <div class="trans-line"></div>
-          </li>
-          <li class="flex flex-justify flex-vert-center">
-            <div class="syyd-item-left flex">
-              <img src="http://www.qpzhangma.com/dataservice/PhotoManage.ashx?OP=comm_Show&tableName=ZM.ImageTable&key=ImageTable_ID&keyValue=90&col=Image">
-              <div class="name-intro-distance">
-                <span class="name">蓝莓园</span>
-                <p>玛莎拉蒂骂什么大</p>
-                <p class="distance">距您<span>58</span>km</p>
-              </div>
-            </div>
-            <div class="syyd-item-right">
-              <span class="price">¥5</span>
+              <span class="price">¥{{el.ViewPrice_Mp}}</span>
               <span>起</span>
             </div>
             <div class="trans-line"></div>
@@ -67,13 +22,30 @@
 </template>
 
 <script>
+import * as syydAPI from '@/api/syyd/index'
+import { imgUrl } from '@/utils/fetch'
 import HeaderNav from '@/components/header'
 export default {
   components: {
     HeaderNav
   },
+  data () {
+    return {
+      allViews: [],
+      imgUrl: imgUrl
+    }
+  },
   methods: {
-
+    getAllViews () {
+      syydAPI.getAllViews('View_Control&MethodName=GetAllViews', 'get')
+        .then((data) => {
+          console.log('data:', data)
+          this.allViews = data
+        })
+    }
+  },
+  mounted () {
+    this.getAllViews()
   }
 }
 </script>

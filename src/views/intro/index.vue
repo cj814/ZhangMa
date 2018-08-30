@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="loading-box" v-if="isLoading">
-          <spinner :color="spinnerColor" :size="50" :depth="4"></spinner>
+          <spinner :size="50" :depth="4"></spinner>
         </div>
     </div>
 </template>
