@@ -23,6 +23,9 @@ html,body{
   width: 100%;
   height: 100%;
 }
+#app{
+  position: absolute;
+}
 .app-content{
   padding-top: 36px;
   padding-bottom: 44px;
